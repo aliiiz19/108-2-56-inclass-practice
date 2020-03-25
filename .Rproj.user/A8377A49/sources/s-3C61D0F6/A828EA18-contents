@@ -90,8 +90,8 @@ num1Vector<-c(5,6,7)
 num2Vector<-c(5L,6L,7L)
 ```
 
-```{r}"
-char1<-"你好
+```{r}
+char1<-"你好"
 char2<-'你好'
 ```
 他說：＂今天多了一個確診。＂
@@ -106,6 +106,21 @@ library(dplyr)
 GET("https://api.github.com/repo/aliiiz/108-2-56-inclass-practice/commits") %>%
   content() %>%
   View()
+```
+
+```{r}
+library(httr)
+library(dplyr)
+GET("https://api.github.com/repos/tpemartin/108-2-56-inclass-practice/commits") %>%
+  content() %>%
+  View()
+```
+
+```{r}
+library(googlesheets4)
+`出席狀況表單網址` <-  "https://docs.google.com/spreadsheets/d/1EAG49qDKPWWi0ebkVr29TLrvVnoBPfkvxYY-J3xLAHY/edit#gid=458686645"
+ss <- as_sheets_id(`出席狀況表單網址`)
+homework_sheet <- sheets_read(ss,sheet=1)
 ```
 
 
