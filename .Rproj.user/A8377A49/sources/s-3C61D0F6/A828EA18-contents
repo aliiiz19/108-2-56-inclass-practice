@@ -62,6 +62,15 @@ my.108.total_credits <- 15
 ```{r}
 `我的年紀` <- 20
 my_age <- `我的年紀`
+
 ```
+```{r}
+num1 <- 5
+vNum1 <- c(2,5)
+vNum2 <- c(2, num1)
+# 右邊num1是在call num1, 會得到5, 相當於vNum2 <- c(2,5)
+```
+
+
 
 
