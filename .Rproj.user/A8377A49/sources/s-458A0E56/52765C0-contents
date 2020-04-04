@@ -143,7 +143,50 @@ toJSON(commit)
 ```
 
 ```{r}
-
+`小明的修課記錄` <- list(
+  name="小明", 
+  semesters=list(
+    `108-1`=list(
+      year="108", 
+      semester="1", 
+      courses=list(
+        list(
+          name="個體經濟學", 
+          teacher="Alice老師", 
+          grade="85"), 
+        list(
+          name="總體經濟學", 
+          teacher="Mark老師", 
+          grade="73"))), 
+    `108-2`=list(
+      year="108", 
+      semester="2", 
+      courses=list(
+        list(
+          name="作業研究", 
+          teacher="Jason老師", 
+          grade="90"))))
+)
 ```
 
-
+```{r}
+`天氣預報` <- list(
+  cities=list(
+    `台北市天意預報`=list(
+      city="台北市", 
+      date=list(
+        today=ymd("2020-03-31"), 
+        tomorrow=ymd("2020-04-01")), 
+      temperature=list(
+        highest="25", 
+        lowest="18")), 
+    `新北市天氣預報`=list(
+      city="新北市", 
+      date=list(
+        today=ymd("2020-03-31"), 
+        tomorrow=ymd("2020-04-01")), 
+      temperature=list(
+        highest="24", 
+        lowest="15")))
+)
+```
