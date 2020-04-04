@@ -172,7 +172,7 @@ toJSON(commit)
 ```{r}
 `天氣預報` <- list(
   cities=list(
-    `台北市天意預報`=list(
+    `台北市天氣預報`=list(
       city="台北市", 
       date=list(
         today=ymd("2020-03-31"), 
