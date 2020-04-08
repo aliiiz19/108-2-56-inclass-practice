@@ -25,6 +25,7 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+
 ```{r}
 vectorExample <- c("小明","小英","大雄")
 
@@ -107,6 +108,16 @@ str(listExample$`學期`)
 ```{r}
 fromJSON("http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000157-002",
          simplifyDataFrame = F) -> newTaipeiCityVaccine
+```
+
+```{r}
+str(newTaipeiCityVaccine)
+length(newTaipeiCityVaccine) # 可選位置
+names(newTaipeiCityVaccine) # 可選名字
+```
+
+```{r}
+
 ```
 
 ```{r}
