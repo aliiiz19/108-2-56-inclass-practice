@@ -153,12 +153,15 @@ listExample[c("student","學期")]
 listExample[c("學期","student")]
 ```
 
+# 台北市夜市資料
 ```{r}
-
+fromJSON("https://www.dropbox.com/s/qnm9bnz7vccrvcz/taipeiNightMarkets.json?dl=1", simplifyDataFrame = F) -> taipeiNightMarkets
 ```
 
 ```{r}
-
+str(taipeiNightMarkets, max.level=1)
+str(taipeiNightMarkets[c(6,7)], max.level=1)
+str(taipeiNightMarkets[c("南機場夜市","景美夜市")], max.level=1)
 ```
 
 ```{r}
