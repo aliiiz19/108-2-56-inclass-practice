@@ -188,7 +188,7 @@ str(taipeiNightMarkets[selectedMarkets], max.level=1)
 ```{r}
 selectedMarkets <- rep(F, 14)
 print(selectedMarkets)
-selectedMarkets[c(1,5,10,14)] <- TRUE
+selectedMarkets[c(1,5,10,14)] <- TRUE # "<-"相當於replacement取代
 print(selectedMarkets)
 ```
 
