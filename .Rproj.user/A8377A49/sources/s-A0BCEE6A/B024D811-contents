@@ -76,15 +76,37 @@ length(tainanSportsMap)
 ```
 
 ```{r}
-
+tainanSportsMap[[1]]
+tainanSportsMap[[1076]]
 ```
 
 ```{r}
-
+# 有多少名字可選：
+names(listExample)
 ```
 
 ```{r}
+listExample$student
+listExample$`學期` # 特殊命名依然要用反頓點呼叫
+```
 
+```{r}
+listExample[["student"]]
+listExample$student
+
+listExample[["學期"]] # 小心不是反頓點喔。
+listExample$`學期`
+```
+
+```{r}
+str(listExample) # structure，看結構
+str(listExample$`學期`)
+```
+
+# 新北市各區衛生所之門診時間及疫苗種類彙整表
+```{r}
+fromJSON("http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000157-002",
+         simplifyDataFrame = F) -> newTaipeiCityVaccine
 ```
 
 ```{r}

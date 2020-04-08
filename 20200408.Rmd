@@ -38,7 +38,75 @@ vectorExample[[3]]
 ```
 
 ```{r}
+listExample <- 
+  list(
+    student="小明",
+    `學期`=list(
+      `108-1`=list(
+        list(
+          name="個體經濟學",
+          teacher="Alice",
+          grade=85
+        )
+      ),
+      `108-2`=list(
+        list(
+          name="總體經濟學",
+          teacher="Mark",
+          grade=78
+        )
+      )
+    )
+  )
+# 有多少位置可選：
+length(listExample)
+```
 
+```{r}
+listExample[[1]]
+listExample[[2]]
+```
+
+# 台南市運動地圖
+```{r}
+library(jsonlite)
+fromJSON("https://data.tainan.gov.tw/dataset/4cd9345a-04bf-4328-a97d-314ff78b4763/resource/afc025fc-1ef4-447c-b785-a680391d0ca1/download/tnsport2.json", simplifyDataFrame = F) -> tainanSportsMap
+
+length(tainanSportsMap)
+```
+
+```{r}
+tainanSportsMap[[1]]
+tainanSportsMap[[1076]]
+```
+
+```{r}
+# 有多少名字可選：
+names(listExample)
+```
+
+```{r}
+listExample$student
+listExample$`學期` # 特殊命名依然要用反頓點呼叫
+```
+
+```{r}
+listExample[["student"]]
+listExample$student
+
+listExample[["學期"]] # 小心不是反頓點喔。
+listExample$`學期`
+```
+
+```{r}
+str(listExample) # structure，看結構
+str(listExample$`學期`)
+```
+
+# 新北市各區衛生所之門診時間及疫苗種類彙整表
+```{r}
+fromJSON("http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000157-002",
+         simplifyDataFrame = F) -> newTaipeiCityVaccine
 ```
 
 ```{r}
