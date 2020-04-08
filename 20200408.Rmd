@@ -165,11 +165,31 @@ str(taipeiNightMarkets[c("南機場夜市","景美夜市")], max.level=1)
 ```
 
 ```{r}
-
+vectorExample
+vectorExample[c(T,T,F)] # 要，要，不要
 ```
 
 ```{r}
+str(listExample[c(F,T)]) # 不要，要
+str(listExample[c(T,T)]) # 要，要
+```
 
+```{r}
+names(taipeiNightMarkets)
+str(taipeiNightMarkets[c(T,F,F,F,T,F,F,F,F,T,F,F,F,T)], max.level=1)
+```
+
+```{r}
+names(taipeiNightMarkets)
+c(T,F,F,F,T,F,F,F,F,T,F,F,F,T) -> selectedMarkets
+str(taipeiNightMarkets[selectedMarkets], max.level=1)
+```
+
+```{r}
+selectedMarkets <- rep(F, 14)
+print(selectedMarkets)
+selectedMarkets[c(1,5,10,14)] <- TRUE
+print(selectedMarkets)
 ```
 
 ```{r}
