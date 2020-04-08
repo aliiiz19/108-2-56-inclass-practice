@@ -170,6 +170,7 @@ toJSON(commit)
 ```
 
 ```{r}
+library(lubridate)
 `天氣預報` <- list(
   cities=list(
     `台北市天氣預報`=list(
@@ -189,4 +190,4 @@ toJSON(commit)
         highest="24", 
         lowest="15")))
 )
-```
+``` 
