@@ -5,16 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2598920541",
+    "hash" : "1699881743",
     "id" : "BD8EEC31",
-    "lastKnownWriteTime" : 1586362221,
-    "last_content_update" : 1586362221349,
+    "lastKnownWriteTime" : 1586863680,
+    "last_content_update" : 1586863837872,
     "path" : "C:/Users/admin/Downloads/homework1-410873040.Rmd",
     "project_path" : null,
     "properties" : {
-        "cursorPosition" : "43,26",
-        "last_setup_crc32" : "A0BCEE6A6e85358a",
-        "scrollLine" : "19"
+        "cursorPosition" : "220,16",
+        "last_setup_crc32" : "A2D6C166e85358a",
+        "scrollLine" : "187"
     },
     "read_only" : false,
     "read_only_alternatives" : [

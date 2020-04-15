@@ -1,0 +1,23 @@
+"0","library(lubridate)"
+"2","
+Attaching package: ¡¥lubridate¡¦
+
+"
+"2","The following object is masked from ¡¥package:base¡¦:
+
+    date
+
+"
+"0","yy <- 2020"
+"0","mm <- ""Mar."""
+"0","dd <- 15"
+"0","event_list <- list("
+"0","  time=ymd(paste0(yy,"","",mm,dd)),"
+"0","  list("
+"0","    name=""å°æ˜Ž"","
+"0","    `æ˜¯å¦å®Œæˆ`=TRUE,"
+"0","    `å®Œæˆæ‰€èŠ±æ™‚é–“(ç§’)`=350,"
+"0","    tools=c("
+"0","      ""anchor"",""axe"")"
+"0","  )"
+"0",")"
