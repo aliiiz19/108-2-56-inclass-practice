@@ -136,15 +136,23 @@ example$name[pick_after98]
 ```
 
 ```{r}
-
+source("https://www.dropbox.com/s/16h6ggua6qtydci/exchangeRate.R?dl=1")
 ```
 
 ```{r}
-
+# 只要1998年1月（含）以後的
+library(lubridate)
+pick_after98_01 <-
+  exchangeRate$`期間` >= ymd("1998-01-01")
 ```
 
 ```{r}
-
+exchangeRate_after98 <-
+  list(
+    `期間`=exchangeRate$`期間`[pick_after98_01],
+    `幣別`=exchangeRate$`幣別`[pick_after98_01],
+    `匯率`=exchangeRate$`匯率`[pick_after98_01]
+  )
 ```
 
 ```{r}
