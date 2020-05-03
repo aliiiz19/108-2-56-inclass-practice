@@ -156,19 +156,29 @@ exchangeRate_after98 <-
 ```
 
 ```{r}
+print(example[c("name","allowance")])
 
+pick_allowanceOver1000 <- example$allowance >= "1001-2000"
+example$name[pick_allowanceOver1000]
 ```
 
 ```{r}
-
+example$allowance <- 
+  ordered(example$allowance)
 ```
 
 ```{r}
-
+example$allowance <-
+  factor(
+    example$allowance,
+    levels=c("0-1000", "1001-2000", "2000+"),
+    ordered = T # 設定為可排序factor
+  )
 ```
 
 ```{r}
-
+pick_allowanceOver1000 <- example$allowance >= "1001-2000"
+example$name[pick_allowanceOver1000]
 ```
 
 ```{r}
