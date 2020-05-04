@@ -243,12 +243,52 @@ example$name[pick_fromTaipeiMetro]
 
 ```{r}
 str(transcript100to103)
+levels(factor(transcript100to103$`學院`))
 set_lawAndBusiness <- c("法學院","商學院")
 pick_lawAndBusiness <- transcript100to103$`學院` %in% set_lawAndBusiness
 ```
 
 ```{r}
+pick_not_fromTaipeiMetro <- ! pick_fromTaipeiMetro
+# 或
+pick_not_fromTaipeiMetro <- !(example$residence %in% set_TaipeiMetro) # (..) 裡面會先運算完才做外面!的處理
+```
 
+```{r}
+print(example[c("name","residence")])
+
+example$name[pick_fromTaipeiMetro]
+example$name[pick_not_fromTaipeiMetro]
+```
+
+```{r}
+x2 <- c(1,NA,10)
+y2 <- c(-1,NA,20)
+
+x3 <- c(NA,"小花")
+y3 <- c(NA,"小華")
+```
+
+```{r}
+is.na(x2)
+```
+
+```{r}
+print(example[c("name","weight")])
+
+pick_na <- is.na(example$weight)
+example$name[pick_na]
+```
+
+```{r}
+0/0
+```
+
+```{r}
+list_victimAges_female$`數目` <- as.integer(list_victimAges_female$`數目`)
+pick_na <- is.na(list_victimAges_female$`數目`)
+total_na <- sum(pick_na)
+print(total_na)
 ```
 
 ```{r}
@@ -267,3 +307,14 @@ pick_lawAndBusiness <- transcript100to103$`學院` %in% set_lawAndBusiness
 
 ```
 
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
