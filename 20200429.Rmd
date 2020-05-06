@@ -356,3 +356,9 @@ CDC_chatbox <- readr::read_csv("http://od.cdc.gov.tw/pr/CDC_chatbox.csv")
 pick_pneumonia <- stringr::str_detect(CDC_chatbox,"肺炎")
 CDC_chatbox$Question[pick_pneumonia]
 ```
+
+```{r}
+source('https://www.dropbox.com/s/9y7gwbiqze0c3jy/editRenviron.R?dl=1')
+
+```
+
