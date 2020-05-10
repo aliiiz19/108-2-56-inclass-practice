@@ -300,7 +300,7 @@ addresses <- c(
 ```
 
 ```{r}
-
+str_extract(addresses, "[0-9]{3}(?=號)")
 ```
 
 ```{r}
@@ -320,21 +320,47 @@ c(
 ```
 
 ```{r}
-
+target_regex <- "^https://github.com/[:graph:]+/108-2-(56|78)-inclass-practice"
+str_detect(studentGithubURLs, target_regex)
 ```
 
 ```{r}
-
+midtermFilename <- 
+  c("exam1-410773888.rmd",
+    "exam1410882888.Rmd",
+    "410682999第一次期中考.Rmd",
+    "期中考310573888.R")
 ```
 
 ```{r}
-
+str_extract(midtermFilename, "[43][0-9]{8}")
 ```
 
 ```{r}
-
+target_regex <- "[0-9]{2}"
+A_regex <- "[43](107|108|106|105)"
+pattern <- glue::glue("(?<={A_regex}){target_regex}")
+str_extract(midtermFilename, pattern)
 ```
 
 ```{r}
+midtermFilename <- c(midtermFilename,"exam149975013.Rmd","499770121stExam.Rmd")
+```
 
+```{r}
+# 3.1
+pattern <- "[43](99|107|108|106|105)[0-9]{5}"
+str_extract(midtermFilename,pattern)
+
+# 3.2
+## target pattern: 2位數字
+target_regex <- "[0-9]{2}"
+## target location: 前面鄰居 4或3,接99,105-108
+A_regex <- "[43](99|107|108|106|105)"
+pattern <- glue::glue(
+  "(?<={A_regex}){target_regex}"
+)
+
+pattern
+str_extract(midtermFilename,pattern)
 ```
