@@ -277,8 +277,19 @@ str_replace(
 ) -> twDate_reformat
 print(twDate_reformat)
 
+dateFinal <- lubridate::ymd(twDate_reformat)
+class(dateFinal)
+```
 
-lubridate::ymd(twDate_reformat)
+```{r}
+date1 <- "康熙23年5月6日"
+library(stringr)
+regex_pattern <- "(?<=康熙)[0-9]{2}(?=年)"
+year <- str_extract(date1, regex_pattern)
+westernYear <- as.integer(year)+1661
+date2 <- str_replace(date1, regex_pattern, as.character(westernYear))
+date3 <-lubridate::ymd(date2)
+class(date3)
 ```
 
 ```{r}
