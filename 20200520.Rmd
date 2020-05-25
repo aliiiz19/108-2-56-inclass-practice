@@ -131,12 +131,12 @@ map(dance[[8]]$showInfo,~.x$location)
 ```
 
 ```{r}
-threeHeigths <- c(Gary=178, John=182, Cam=175)
+threeHeigthts <- c(Gary=178, John=182, Cam=175)
 ```
 
 ```{r}
 # 先排序由大到小，
-sort(threeHeigths, decreasing=T) -> sorted_heights
+sort(threeHeigthts, decreasing=T) -> sorted_heights
 
 # 把排好的人名取出
 names(sorted_heights) -> sorted_persons
@@ -185,15 +185,23 @@ levels(region) %>%
 ```
 
 ```{r}
+num <- c(2,97,22,15,7)
 
+# 選出大於50的數字
+(num > 50) -> pick_big
+num[pick_big]
 ```
 
 ```{r}
-
+(num > 50) %>%
+  num[.]
 ```
 
 ```{r}
-
+threeHeights %>%
+  .sort(., decreasing=T) %>%
+  names(.) %>%
+  .[[1]] -> highestPerson
 ```
 
 ```{r}
