@@ -205,27 +205,41 @@ threeHeights %>%
 ```
 
 ```{r}
-
+levels(region) %>%
+  str_replace(.,"台北","北部") %>%
+  str_replace(.,"花蓮|台東","東部") %>%
+  str_replace(.,"台中","中部") ->
+  levels(region)
 ```
 
 ```{r}
-
+levels(region) %>% 
+  str_replace("台北","北部") %>%
+  str_replace("花蓮|台東","東部") %>%
+  str_replace("台中","中部") -> 
+  levels(region)
 ```
 
 ```{r}
+# 資料
+population <- c(`cityA`=500,`cityB`=1500, `cityC`=399)
+cities <- c("cityA","cityA","cityB","cityB","cityC")
 
+# 分析步驟
+names(sort(population)) -> setLevels
+factor(cities, levels = setLevels) -> cities 
 ```
 
 ```{r}
-
+names(sort(population)) %>%
+  factor(cities, levels = .) -> cities 
 ```
 
 ```{r}
-
-```
-
-```{r}
-
+population %>%
+  sort() %>%
+  names() %>%
+  factor(cities, levels=.) -> cities
 ```
 
 ```{r}
