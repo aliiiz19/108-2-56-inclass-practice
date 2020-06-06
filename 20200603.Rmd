@@ -146,7 +146,12 @@ askSilly_weather("花蓮縣")
 ```
 
 ```{r}
+library(lubridate)
+what_time_it_is <- function(timezone){
+now <- with_tz(now(), tz=timezone)
+return(now)}
 
+what_time_it_is("Europe/Paris")
 ```
 
 ```{r}
