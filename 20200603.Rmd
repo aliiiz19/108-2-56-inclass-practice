@@ -184,27 +184,63 @@ learning_topics$functionsCreated$demand(1.2)
 ```
 
 ```{r}
-
+typeof(demand_return)
 ```
 
 ```{r}
-
+# 查詢函數執行所要求環境
+environment(demand_return)
 ```
 
 ```{r}
-
+intercept <- 10
+slope <- -5
+myDemand <- function(p){
+  q_d <- intercept + slope*p
+  return(q_d)
+}
 ```
 
 ```{r}
-
+environment(demand_return)
+environment(myDemand)
 ```
 
 ```{r}
+codetools::findGlobals(demand_return)
+codetools::findGlobals(myDemand) 
 
+# myDemand對Global environment的要求多了intercept及slope
 ```
 
 ```{r}
+# 移除global environment裡的intercept及slope
+rm(intercept, slope)
+```
 
+```{r}
+demand_return(1.2) # 維持正常運作
+```
+
+```{r}
+myDemand(1.2) # 無法運作
+```
+
+```{r}
+intercept <- 10
+slope <- -5
+myDemand(1.2)
+```
+
+```{r}
+slope <- -1
+myDemand(1.2)
+```
+
+```{r}
+intercept <- 5
+slope <- -1.2
+myDemand(1.2)
 ```
 
 ```{r}
