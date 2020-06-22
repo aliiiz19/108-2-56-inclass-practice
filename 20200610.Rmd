@@ -469,3 +469,56 @@ if(grade >=90){
   print("待加強")
 }
 ```
+
+```{r}
+major <- c("經濟系")
+get_coursesAllYears <- function(entranceYears, major){
+  entranceYears %>% 
+    map(~get_courses(.x, major)) -> 
+    list_eco_allYears 
+  return(list_eco_allYears)
+}
+
+year1 = length(list_eco_allYears[[1]][[1]])
+year2 = length(list_eco_allYears[[1]][[2]])
+year3 = length(list_eco_allYears[[1]][[3]])
+year4 = length(list_eco_allYears[[1]][[4]])
+map(list_eco_allYears[[1]], ~length(.x))
+
+map(list_eco_allYears[[1]], ~length(.x))
+map(list_eco_allYears[[2]], ~length(.x))
+map(list_eco_allYears[[3]], ~length(.x))
+map(list_eco_allYears[[4]], ~length(.x))
+list <- map(list_eco_allYears, ~map(.x, ~length(.x)))
+
+list_econCourseCounts <- list(
+  entranceYear = 100:103,
+  year1 = c(list[[1]][[1]], list[[2]][[1]], list[[3]][[1]], list[[4]][[1]]),
+  year2 = c(list[[1]][[2]], list[[2]][[2]], list[[3]][[2]], list[[4]][[2]]),
+  year3 = c(list[[1]][[3]], list[[2]][[3]], list[[3]][[3]], list[[4]][[3]]),
+  year4 = c(list[[1]][[4]], list[[2]][[4]], list[[3]][[4]], list[[4]][[4]])
+)
+
+list_econCourseCounts
+```
+
+```{r}
+major <- c("經濟系")
+get_coursesAllYears <- function(entranceYears, major){
+  entranceYears %>% 
+    map(~get_courses(.x, major)) -> 
+    list_eco_allYears 
+  return(list_eco_allYears)
+}
+list <- map(list_eco_allYears, ~map(.x, ~length(.x)))
+list_econCourseCounts <- list(
+  entranceYear = 100:103,
+  year1 = c(list[[1]][[1]], list[[2]][[1]], list[[3]][[1]], list[[4]][[1]]),
+  year2 = c(list[[1]][[2]], list[[2]][[2]], list[[3]][[2]], list[[4]][[2]]),
+  year3 = c(list[[1]][[3]], list[[2]][[3]], list[[3]][[3]], list[[4]][[3]]),
+  year4 = c(list[[1]][[4]], list[[2]][[4]], list[[3]][[4]], list[[4]][[4]])
+)
+
+list_econCourseCounts
+```
+
