@@ -123,15 +123,37 @@ print(outcome2)
 ```
 
 ```{r}
-
+cut(x, c(a, b, c))
 ```
 
 ```{r}
-
+a <- c(1, 2, 3)
+cut(a, c(1, 2, 3))
 ```
 
 ```{r}
+grade <- sample(1:100, 10, replace = T)
 
+grade <- grade %>% cut(c(-1, 69, 79, 89, 100))
+
+levels(grade)
+
+switch(as.character(grade[[1]]), 
+       `(-1,69]` = {
+        print("-_-") # 有回存時要螢幕印出的訊息一定要加print
+        "F"
+    }, `(69,79]` = {
+        print("棒")
+        "C"
+    }, `(79,89]` = {
+        print("好棒")
+        "B"
+    }, `(89,100]` = {
+        print("好棒棒")
+        "A"
+    }) -> letterGrade
+
+letterGrade
 ```
 
 ```{r}
