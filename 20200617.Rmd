@@ -318,10 +318,11 @@ ifelse(x%%2 == 0, "even", "odd")
 
 ```{r}
 y <- sample(40:100, 20, replace = T)
-dplyr::case_when(y < 60 ~ "F", 60 <= y & y < 70 ~ "D", 71 <= y & y < 80 ~ "C", 80 <= 
-    y & y < 90 ~ "B", 90 <= y ~ "A")
-```
-
-```{r}
-
+dplyr::case_when(
+  y < 60 ~ "F", 
+  60 <= y & y < 70 ~ "D", 
+  70 <= y & y < 80 ~ "C", 
+  80 <= y & y < 90 ~ "B", 
+  90 <= y ~ "A"
+  )
 ```
