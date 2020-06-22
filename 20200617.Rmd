@@ -157,11 +157,68 @@ letterGrade
 ```
 
 ```{r}
+nowtime <- glue::glue("{today()} 18:00:00") %>% ymd_hms(tz = "Asia/Taipei")
 
+library(lubridate)
+library(glue)
+
+# 建立可當cutpoints的一天時間點
+cutpoints <- c(glue("{today()} 06:00:00"), glue("{today()} 09:00:00"), glue("{today()} 17:00:00"), 
+    glue("{today()} 19:00:00"), glue("{today()} 23:30:00"), glue("{today()+days(1)} 01:00:00"))
+cutpoints <- cutpoints %>% ymd_hms(tz = "Asia/Taipei")
+
+## 將nowtime轉成它對應的時段是'morning', 'evening', 或其他。
+nowtime <- cut(nowtime, cutpoints)
+levels(nowtime)[c(1, 3, 5)] <- c("morning", "evening", "jazz time")
+
+## 使用switch決定要做什麼事
+switch(as.character(nowtime), morning = {
+    print("要不要來閱讀點國際時事？")
+    browseURL("https://economist.com")
+}, evening = {
+    print("需不需要點餐呢？")
+    browseURL("https://www.foodpanda.com.tw/")
+}, `jazz time` = {
+    print("放鬆聽點Jazz。")
+    browseURL("https://open.spotify.com/playlist/37i9dQZF1DXbITWG1ZJKYt")
+}, {
+    print("機器人要休息，饒了我吧～～")
+})
 ```
 
 ```{r}
+whatNeedToDo_butler_mom <- function(nowtime = now()) {
+    library(lubridate)
+    library(glue)
+    
+    cutpoints <- c(glue("{today()} 06:00:00"), glue("{today()} 09:00:00"), glue("{today()} 17:00:00"), 
+        glue("{today()} 19:00:00"), glue("{today()} 23:30:00"), glue("{today()+days(1)} 01:00:00"))
+    cutpoints <- cutpoints %>% ymd_hms(tz = "Asia/Taipei")
+    
+    nowtime <- cut(nowtime, cutpoints)
+    levels(nowtime)[c(1, 3, 5)] <- c("morning", "evening", "jazz time")
+    
+    switch(as.character(nowtime), morning = {
+        print("要不要來閱讀點國際時事？")
+        browseURL("https://economist.com")
+    }, evening = {
+        print("需不需要點餐呢？")
+        browseURL("https://www.foodpanda.com.tw/")
+    }, `jazz time` = {
+        print("放鬆聽點Jazz。")
+        browseURL("https://open.spotify.com/playlist/37i9dQZF1DXbITWG1ZJKYt")
+    }, {
+        print("機器人要休息，饒了我吧～～")
+    })
+}
 
+ymd_hms(glue::glue("{today()} 08:00:00"), tz = "Asia/Taipei") %>% whatNeedToDo_butler_mom()
+
+ymd_hms(glue::glue("{today()} 14:00:00"), tz = "Asia/Taipei") %>% whatNeedToDo_butler_mom()
+
+ymd_hms(glue::glue("{today()} 18:00:00"), tz = "Asia/Taipei") %>% whatNeedToDo_butler_mom()
+
+ymd_hms(glue::glue("{today()+days(1)} 00:20:00"), tz = "Asia/Taipei") %>% whatNeedToDo_butler_mom()
 ```
 
 ```{r}
